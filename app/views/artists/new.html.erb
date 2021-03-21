@@ -1,0 +1,9 @@
+<h2>新規アーティスト登録</h2>
+
+<%= form_with model:@artist, url:'/artists', local:true do |f| %>
+  <h4>アーティスト名</h4>
+  <%= f.text_field :name %>
+  <h4>ジャンル</h4>
+  <%= f.text_area :body %>
+  <%= f.submit '新規アーティスト登録' %>
+<% end %>

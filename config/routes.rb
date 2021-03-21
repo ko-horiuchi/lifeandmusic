@@ -6,8 +6,5 @@ Rails.application.routes.draw do
   get root to: "homes#top"
   get "home/about" => "homes#about"
   resources :users, only: [:show, :edit, :update]
-  resources :artists
-  
-  
-
+  resources :artists,only: [:index, :show, :new, :create]
 end

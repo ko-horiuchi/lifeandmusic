@@ -1,2 +1,14 @@
 <h2>マイページ</h2>
 
+<table>
+  <tr>
+    <th>ニックネーム</th>
+      <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th>イントロダクション</th>
+      <td><%= @user.introduction %></td>
+  </tr>
+</table>
+
+<%= link_to "登録内容変更",edit_user_path(@user) %>
