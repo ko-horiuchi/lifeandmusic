@@ -1,3 +1,16 @@
-<% @artists.each do |artist| %>
-<%= artist.name %>
+<table>
+  <% @artists.each do |artist| %>
+  <tr>
+    <th>アーティスト名</th>
+    <th>ジャンル</th>
+    <th>投稿数</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= artist.name %></td>
+    <td><%= artist.genre %></td>
+    <td><%= artist.id %></td>
+    <td><%= link_to "楽曲一覧",artist_path(artist) %></td>
+  </tr>
 <% end %>
+</table>
