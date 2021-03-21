@@ -1,7 +1,7 @@
 class MusicsController < ApplicationController
 
   def index
-    @music = Music.find(params[:id])
+    @musics = Music.all
   end
 
   def new

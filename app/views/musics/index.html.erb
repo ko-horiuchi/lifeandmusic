@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>投稿日</th>
+    <th>アーティスト名</th>
+    <th>楽曲名</th>
+    <th>投稿人</th>
+  </tr>
+  <% @musics.each do |music| %>
+    <tr>
+      <td><%= music.created_at.strftime('%Y/%m/%d') %></td>
+      <td>
+        <%= link_to artist_path(music.artist_id) do %>
+          <%= music.artist.name %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to music_path(music.id) do %>
+          <%= music.name %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to user_path(music.user) do %>
+          <%= music.user.name %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
