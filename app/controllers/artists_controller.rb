@@ -10,6 +10,8 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
+    @artist.save
+    redirect_to book_path
   end
 
   def show
