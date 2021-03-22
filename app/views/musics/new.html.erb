@@ -28,15 +28,3 @@
   <% end %>
   
 </div>
-
-<%= form_for @music do |f| %>
-	<p>
-    <%= f.label :name, "曲名" %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :introduction, "紹介文" %>
-    <%= f.text_area :introduction %>
-  </p>
-  <%= f.submit %>
-<% end %>

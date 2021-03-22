@@ -21,7 +21,8 @@ class MusicsController < ApplicationController
 
   def show
     @music = Music.find(params[:id])
-    @user = @music.user
+    @comment = Comment.new
+    @comments = @music.comments
   end
 
   def music_params
