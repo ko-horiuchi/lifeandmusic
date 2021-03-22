@@ -1,4 +1,5 @@
 class MusicsController < ApplicationController
+  before_action :authenticate_user!, except: [:top]
 
   def index
     @musics = Music.all
@@ -10,8 +11,9 @@ class MusicsController < ApplicationController
 
   def create
     @music = Music.new(music_params)
+    @blog.user_id = current_user.id
     if @music.save
-      redirect_to music_path(@music.id)
+      redirect_to musics_path
     else
       render :new
     end
@@ -19,9 +21,10 @@ class MusicsController < ApplicationController
 
   def show
     @music = Music.find(params[:id])
+    @user = @music.user
   end
 
   def music_params
-    params.require(:music).permit(:name, :artist_id, :scene, :introduction)
+    params.require(:music).permit(:name, :artist_id, :scene, :introduction, :user_id)
   end
 end

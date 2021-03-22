@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+    <% if music.liked_by?(current_user) %>
+        <p><span>お気に入り解除: </span><%=link_to music.likes.count, music_likes_path(music.id), method: :delete, remote: true %></p>
+    <% else %>
+        <p><span>お気に入り登録: </span><%=link_to music.likes.count, music_likes_path(music.id), method: :post, remote: true %></p>
+    <% end %>
+<% else %>
+    <p><span>お気に入り数: </span><%= music.likes.count %></p>
+<% end %>
