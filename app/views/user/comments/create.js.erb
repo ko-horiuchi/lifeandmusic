@@ -1,0 +1,2 @@
+$("#comments_area").html("<%= j(render(:partial => 'user/comments/index', :locals => {:comments => @comment.music.comments})) %>");
+$("textarea").val('');

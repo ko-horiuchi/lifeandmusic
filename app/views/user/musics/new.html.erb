@@ -1,0 +1,32 @@
+<%= render 'user/user_header' %>
+
+<div class= "center">
+    
+  <h2>おすすめ楽曲新規投稿</h2>
+  
+  <%= form_with model:@music, url:'/musics', local:true do |f| %>
+  
+    <h4>アーティスト名</h4>
+      <%= f.collection_select :artist_id, Artist.all, :id, :name, prompt: "--選択してください--" %>
+        <p>一覧に無い場合は<%= link_to "こちら",new_artist_path %>から新規アーティスト登録をお願いします。</p>
+    <h4>楽曲名</h4>
+      <%= f.text_field :name %>
+    <h4>シーン（どんな時に聴きたくなる？）</h4>
+      <%= f.radio_button :scene, "Mornig" %>
+        <%= f.label :scene, 'Mornig' %></br>
+      <%= f.radio_button :scene, "Night" %>
+        <%= f.label :scene, 'Night' %></br>
+      <%= f.radio_button :scene, "Holiday" %>
+        <%= f.label :scene, 'Holiday' %></br>
+      <%= f.radio_button :scene, "Drive" %>
+        <%= f.label :scene, 'Drive' %></br>
+      <%= f.radio_button :scene, "Happy" %>
+        <%= f.label :scene, 'Happy' %></br>
+      <%= f.radio_button :scene, "Sad" %>
+        <%= f.label :scene, 'Sad' %></br>
+      <h4>紹介コメント</h4>
+      <%= f.text_area :introduction %></br>
+    <%= f.submit 'わたしのおすすめを紹介!' %>
+  <% end %>
+  
+</div>

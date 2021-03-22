@@ -1,9 +1,0 @@
-<% comments.each do |comment| %>
-  <% unless comment.id.nil? %>
-    <p><%= link_to "#{comment.user.name}さん", user_path(comment.user.id), remote: true %></p>
-    <p>コメント：<%= comment.content %></p>
-    <% if comment.user == current_user %>
-      <p><%= link_to 'コメントを削除する', music_comments_path(comment.music_id, comment.id), method: :delete, remote: true %></p>
-    <% end %>
-  <% end %>
-<% end %>

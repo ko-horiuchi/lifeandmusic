@@ -1,50 +1,28 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # Life & Music
 
 ## サイト概要
-音楽を共有するサイトです。
-お気に入りの曲の感想を投稿して意見交換を行うことを目的としています。
-そのため音源や歌詞の添付はありません。
+インディーズバンドと音楽業界の方をつなぐサイトです。（少し趣向を変えました。）
+バンドは自らを売り込み紹介して、音楽業界は新人のチェックや事務所の勧誘に役立てます。
 
 ### サイトテーマ
-好きな音楽を共有して知らない音楽に出会うことです。
+業界発展の役に少しでも立てればと思います。
 
 ### テーマを選んだ理由
-音楽を聴くのが好きなのですが、好きな音楽を探したり出会うのはなかなか難しいと感じていました。
-趣味が似ている人と意見を交換したりおすすめを聞くことにより、音楽と新しい出会いがあればと思いこのテーマを選びました。
+自分自身は全く演奏できませんが、バンドが好きで学生の頃はよくライブ会場に足を運んでいました。
+あまり名前は知られていなくても素晴らしいバンドがたくさんいましたが、結局売れずに解散する方たちを多く見ました。
+コロナでライブもできない状況ですので、このサイトが少しでもPRできる場になればと思い決めました。
 
 ### ターゲットユーザ
-音楽好きの一般ユーザ（主に比較的若い層）
+結成歴問わずバンドマンと音楽業界の方たち
 
 ### 主な利用シーン
-新しい音楽を探す際や趣味嗜好が近いユーザーとの意見交換、
-今聴いている音楽に近いアーティストを探したり、全く新しい音楽に出会いたい時が主な利用シーンです。
+新曲ができた時や自らを売り込みたい時、また音楽業界の方は新人発掘等
 
 ## 設計書
+ユーザはサイト新規登録の際、enumでバンドor業界人で切り替えます。
+ユーザ一覧はバンドのみの表示とします。
+バンドは楽曲投稿することができます。楽曲一覧にいいね機能をつけて
+新着順とランキング順に切り替える機能をつけたいと考えています。
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1fItgbkRGQmQdMIoY26t8M-FwR1IpsuEYgoan-lV63Lc/edit#gid=0
