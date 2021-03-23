@@ -3,12 +3,14 @@
 <div class= "center">
 
 <h2>投稿楽曲一覧</h2>
-	<%= form_with url: musics_path, method: :get, local: true do |form| %>
-	  <%= form.select :keyword, [ ['投稿が新しい順', 'new'],
-	                            ['投稿が古い順', 'old'],
-	                            ['いいねが多い順', 'likes'],
-	                            ['いいねが少ない順', 'dislikes'],]  %>
-	  <%= form.submit %>
+	<div class= "seach">
+		<%= form_with url: musics_path, method: :get, local: true do |form| %>
+		  <%= form.select :keyword, [ ['投稿が新しい順', 'new'],
+		                            ['投稿が古い順', 'old'],
+		                            ['いいねが多い順', 'likes'],
+		                            ['いいねが少ない順', 'dislikes'],]  %>
+		  <%= form.submit %>
+	</div>
 	<% end %>
 	<div class="main_contents">
 		<% @musics.each do |music| %>
