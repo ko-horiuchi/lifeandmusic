@@ -1,18 +1,23 @@
 <%= render 'user/user_header' %>
+  <div class= "center">
 
-<h2>マイページ</h2>
+  <h1><%= @user.name %></h1>
 
-<table>
-  <tr>
-    <th>名前</th>
-      <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <th>イントロダクション</th>
-      <td><%= @user.introduction %></td>
-  </tr>
-</table>
+    <table>
+      <tr><th>introducion</th></tr>
+      <tr><td><%= @user.introduction %></td></tr>
+    </table>
 
-<%= link_to "登録内容変更",edit_user_path(@user) %>
+    <div class= "edit_btn"><%= link_to "登録内容変更",edit_user_path(@user), class: 'btn btn-success btn-sm' %></div>
 
-<%= link_to "新規楽曲投稿",new_music_path %>
+    <h5>お気に入り楽曲</h5>
+      <% @user.likes.each do |like| %>
+      　<div><%= link_to music_path(like.music) do %>
+               <%= like.music.name %>
+             <% end %>
+        </div>
+      <% end %>
+
+    <div><%= link_to "新規楽曲投稿",new_music_path, class: 'btn btn-primary btn-lg' %></div>
+
+</div>

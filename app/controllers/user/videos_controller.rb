@@ -1,5 +1,5 @@
 class User::VideosController < ApplicationController
-  
+
   def index
   end
 

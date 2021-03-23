@@ -23,13 +23,18 @@ Rails.application.routes.draw do
   scope module: 'user' do
     get root to: "homes#top"
     get "home/about" => "homes#about"
-    resources :users
+    resources :users do
+      collection do
+        get :likes
+      end
+    end
+
     resources :artists, only: [:index, :show, :new, :create]
     resources :musics do
       resource :likes, only: [:create, :destroy]
       resource :comments, only: [:create, :destroy]
     end
-    get 'search' => 'musics#search'
+    # get 'search' => 'musics#search'
     resources :videos
   end
 end

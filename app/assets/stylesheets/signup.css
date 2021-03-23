@@ -2,6 +2,10 @@
   text-align:center
 }
 
+.caution {
+  font-size: 8px;
+}
+
 .field {
   margin-bottom: 20px;
 }

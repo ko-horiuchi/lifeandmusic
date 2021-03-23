@@ -1,13 +1,14 @@
 <%= render 'user/user_header' %>
+  <div class= "center">
 
-<h2>登録内容を編集</h2>
+<h2>プロフィール編集</h2>
 
   <%= form_with model:@user, local:true do |f| %>
-    <label for="inputName">ニックネーム</label></br>
+    <label for="inputName">登録名</label></br>
       <%= f.text_field :name, autofocus: true, id:"inputName" %></br>
     <label for="inputIntroduction">イントロダクション</label></br>
-      <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction" %></br>
-    <%= f.submit "編集完了！" %>
+      <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", size: "40x20" %></br>
+    <%= f.submit "編集完了！", class: 'btn btn-success btn-sm' %>
   <% end %>
 
 
