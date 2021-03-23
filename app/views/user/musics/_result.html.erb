@@ -1,0 +1,19 @@
+<% @musics.each do |music| %>
+  <p>
+    <%= link_to music.name, music_path(music.id) %>
+    <br>
+    <%= music.introduction %>
+    <br>
+    <%= music.created_at %>
+    <br>
+    <% if user_signed_in? %>
+      <% if music.liked_by?(current_user) %>
+        <%= link_to "いいね: #{music.likes.count}", music_likes_path(music.id), method: :delete %>
+      <% elsif %>
+        <%= link_to "いいね: #{music.likes.count}", music_likes_path(music.id), method: :post %>
+    <% elsif %>
+      <%= music.likes.count %>
+    <% end %>
+    <% end %>
+    <% end %>
+    </p>

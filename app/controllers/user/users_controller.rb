@@ -1,5 +1,9 @@
 class User::UsersController < ApplicationController
 
+  def index
+    @user = User.all
+  end
+
   def show
     @user = User.find(params[:id])
     @musics = @user.musics
@@ -27,6 +31,6 @@ class User::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :introduction)
+    params.require(:user).permit(:name, :introduction,:music_)
   end
 end

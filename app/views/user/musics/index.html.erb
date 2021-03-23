@@ -2,48 +2,20 @@
 
 <div class= "center">
 
-  <h1>新着楽曲一覧</h1>
-
-  <table>
-    <tr>
-      <th>投稿日</th>
-      <th>アーティスト名</th>
-      <th>楽曲名</th>
-      <th>投稿者</th>
-    </tr>
-    <% @musics.each do |music| %>
-      <tr>
-        <td><%= music.created_at.strftime('%Y/%m/%d') %></td>
-        <td>
-          <%#= link_to music_path(music.artist.id) do %>
-            <%= music.artist.name %>
-          <%# end %>
-        </td>
-        <td>
-          <%#= link_to music_path(music.id) do %>
-            <%= music.name %>
-          <%# end %>
-        </td>
-        <td>
-          <%#= link_to music_user_path(music.user.id) do %>
-            <%#= music.user.name %>
-          <%# end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-</div>
+<h2>投稿楽曲一覧</h2>
 
 
-  
 <div class="main_contents">
 	<% @musics.each do |music| %>
 		<div class= "blog_contents">
 		  <h2><%= link_to music.name, music_path(music.id) %></h2>
 		  <%= music.introduction %>
 		 <div id="likes_buttons_<%= music.id %>">
-            <%= render partial: 'likes/like', locals: { music: music} %>
+            <%= render partial: 'user/likes/like', locals: { music: music} %>
           </div>
 	</div>
 	<% end %>
 </div>
+
+<%= render 'select_form' %>
+<%= render 'result' %>

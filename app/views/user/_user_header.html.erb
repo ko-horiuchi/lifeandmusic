@@ -5,9 +5,8 @@
             <ul>
               <li><%= link_to 'L & M', root_path %></li>
               <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
-              <li><%= link_to '新着投稿一覧', musics_path %></li>
-              <li><%= link_to 'アーティスト一覧', artists_path %></li>
-              <li><%= link_to '新規おすすめ楽曲投稿', new_music_path %></li>
+              <li><%= link_to '投稿楽曲一覧', musics_path %></li>
+              <li><%= link_to 'バンド一覧', users_path %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
           </div>

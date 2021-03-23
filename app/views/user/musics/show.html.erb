@@ -1,11 +1,11 @@
-<h3><%= @music.artist.name %></h3>
+<%= render 'user/user_header' %>
+
   <h2><%= @music.name %></h2>
-
-    <p>わたしが聴きたくなるシーン <%= @music.scene %></p>
-
 
     <%= @music.introduction %>
 
+    <td><%= link_to "Edit", edit_music_path(@music.id), class: "btn btn-success btn-sm" %></td>
+    <td><%= link_to 'Destroy', music_path,class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
 
 
    <div>

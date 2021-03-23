@@ -8,9 +8,17 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :"ニックネーム" %><br />
+      <%= f.label :"バンド名 or 名前(ニックネーム)" %><br />
+       <div>--プロデューサーの方--</br>コメントやユーザ詳細で名前が表示されます。</div><br />
       <%= f.text_field :name, autofocus: true %>
     </div>
+    
+    <%= f.label :"ユーザータイプ" %><br />
+     <div class="field">
+      <%= f.radio_button :scene, "Band" %>
+        <%= f.label :scene, 'Band' %></br>
+      <%= f.radio_button :scene, "Producer" %>
+        <%= f.label :scene, 'Producer' %></br>
 
     <div class="field">
       <%= f.label :"メールアドレス" %><br />

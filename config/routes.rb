@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'video/index'
+  get 'video/new'
+  get 'video/create'
   devise_for :admins, path: 'admin', controllers: {
    sessions: 'admins/sessions'
   }
@@ -26,5 +29,7 @@ Rails.application.routes.draw do
       resource :likes, only: [:create, :destroy]
       resource :comments, only: [:create, :destroy]
     end
+    get 'search' => 'musics#search'
+    resources :videos
   end
 end
