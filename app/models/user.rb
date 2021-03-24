@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
-  enum scene: { Band: 0, Producer: 1 }
+
+  enum kind: { band: 0, producer: 1 }
 
   has_many :musics, dependent: :destroy
   has_many :likes, dependent: :destroy

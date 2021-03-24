@@ -6,13 +6,13 @@
 
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    
+
     <div class="field">
       <%= f.label :"登録タイプをお選びください。" %><br />
-        <%= f.radio_button :scene, "Band" %>
-          <%= f.label :scene, 'Band' %></br>
-        <%= f.radio_button :scene, "Producer" %>
-          <%= f.label :scene, 'Producer' %></br>
+        <%= f.radio_button :kind, :band %>
+          <%= f.label :kind, 'Band' %></br>
+        <%= f.radio_button :kind, :producer %>
+          <%= f.label :kind, 'Producer' %></br>
     </div>
 
     <div class="field">
@@ -21,8 +21,8 @@
        <div class= caution>--音楽関係者の方--</br>コメント等で名前が表示されます。ニックネーム等でも結構です。</div>
       <%= f.text_field :name, autofocus: true %>
     </div>
-    
-    
+
+
 
     <div class="field">
       <%= f.label :"メールアドレス" %><br />
