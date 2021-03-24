@@ -6,7 +6,7 @@
 
     <table>
       <% @user.each do |user| %>
-      <% if user.type == 0 %>
+      <% if user.kind == 0 %>
       <tr>
         <th>バンド名</th>
         <th>詳細</th>
@@ -15,8 +15,7 @@
         <td><%= user.name %></td>
         <td><%= link_to "楽曲一覧",musics_path %></td>
       </tr>
-      <% else %>
-      <% end %>
+    <% end %>
     <% end %>
     </table>
 

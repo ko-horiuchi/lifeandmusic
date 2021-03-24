@@ -5,12 +5,12 @@
   <h2>新規楽曲投稿</h2>
 
   <%= form_with model:@music, url:'/musics', local:true do |f| %>
-
     <h4>楽曲名</h4>
       <%= f.text_field :name %>
     <h4>音源アップロード</h4>
-
-      <h4>イントロダクション</h4>
+      <%= f.label :video %>
+      <%= f.file_field :video, :accept => 'video/*' %>
+    <h4>イントロダクション</h4>
       <%= f.text_area :introduction, size: "40x20" %></br>
     <%= f.submit '投稿!', class: 'btn btn-success btn-sm' %>
   <% end %>

@@ -1,5 +1,4 @@
 class Music < ApplicationRecord
-  belongs_to :artist, optional: true
   belongs_to :user, optional: true
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
@@ -8,7 +7,9 @@ class Music < ApplicationRecord
   def liked_by?(user)
 	   likes.where(user_id: user.id).exists?
   end
-  
+
+  mount_uploader :video, VideoUploader
+
   def self.sort(selection)
     case selection
     when 'new'

@@ -25,6 +25,7 @@ class User::MusicsController < ApplicationController
 
   def show
     @music = Music.find(params[:id])
+    @musics = Music.all
     @comment = Comment.new
     @comments = @music.comments
   end
@@ -34,7 +35,7 @@ class User::MusicsController < ApplicationController
 
   def update
     if @music.update(music_params)
-       redirect_to music_path(@music.id),  notice: 'You have updated book successfully.'
+       redirect_to music_path(@music.id)
     else
       render :edit
     end
@@ -55,6 +56,6 @@ class User::MusicsController < ApplicationController
   end
 
   def music_params
-    params.require(:music).permit(:name, :introduction, :user_id)
+    params.require(:music).permit(:name, :introduction, :user_id, :video)
   end
 end
