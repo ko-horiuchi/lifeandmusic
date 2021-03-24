@@ -23,6 +23,8 @@
       <% end %>
       
         <table>
+          <% kind_before_type_cast = @user %><!--ユーザー登録タイプ（band）のみ表示-->
+          <h5>投稿楽曲一覧</h5>
       <% @user.musics.each do |music| %>
       <tr>
         <th>投稿日</th>

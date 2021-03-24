@@ -5,17 +5,15 @@
   <h1>バンド一覧</h1>
 
     <table>
+      <% kind_before_type_cast = @user %><!--ユーザー登録タイプ（band）のみを表示-->
       <% @user.each do |user| %>
-      <% kind_before_type_cast = @user %>
-      <!--ユーザー登録タイプ（band）のみを表示-->
-      
       <tr>
         <th>バンド名</th>
         <th>詳細</th>
       </tr>
       <tr>
         <td><%= user.name %></td>
-        <td><%= link_to "楽曲一覧",musics_path %></td>
+        <td><%= link_to "楽曲一覧",user_path(user.id) %></td>
       </tr>
     <% end %>
     </table>

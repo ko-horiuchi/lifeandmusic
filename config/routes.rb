@@ -26,7 +26,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :artists, only: [:index, :show, :new, :create]
     resources :musics do
       resource :likes, only: [:create, :destroy]
       resource :comments, only: [:create, :destroy]
