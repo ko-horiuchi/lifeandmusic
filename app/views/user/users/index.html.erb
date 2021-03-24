@@ -6,7 +6,9 @@
 
     <table>
       <% @user.each do |user| %>
-      <% if user.kind == 0 %>
+      <% kind_before_type_cast = @user %>
+      <!--ユーザー登録タイプ（band）のみを表示-->
+      
       <tr>
         <th>バンド名</th>
         <th>詳細</th>
@@ -16,7 +18,5 @@
         <td><%= link_to "楽曲一覧",musics_path %></td>
       </tr>
     <% end %>
-    <% end %>
     </table>
-
 </div>
