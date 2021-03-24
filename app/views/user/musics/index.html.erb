@@ -1,27 +1,28 @@
 <%= render 'user/user_header' %>
 
 <div class= "center">
-
-<h2>投稿楽曲一覧</h2>
-	<div class= "seach">
-		<%= form_with url: musics_path, method: :get, local: true do |form| %>
-		  <%= form.select :keyword, [ ['投稿が新しい順', 'new'],
-		                            ['投稿が古い順', 'old'],
-		                            ['いいねが多い順', 'likes'],
-		                            ['いいねが少ない順', 'dislikes'],]  %>
+	<h2>投稿楽曲一覧</h2>
+		<div class= "seach">
+			<%= form_with url: musics_path, method: :get, local: true do |form| %>
+		  	<%= form.select :keyword, [ ['投稿が新しい順', 'new'],
+		    	                        ['投稿が古い順', 'old'],
+		      	                      ['いいねが多い順', 'likes'],
+		        	                    ['いいねが少ない順', 'dislikes'],]  %>
 		  <%= form.submit %>
-	</div>
-	<% end %>
-	<div class="main_contents">
-		<% @musics.each do |music| %>
-			<div class= "blog_contents">
-				<div><%= music.created_at.strftime("%Y-%m-%d %H:%M") %></div>
-				<div><%= music.user.name %></div>
-			  <h2><%= link_to music.name, music_path(music.id) %></h2>
-			  <%= music.introduction %>
-			  <div id="likes_buttons_<%= music.id %>">
-	      	<%= render partial: 'user/likes/like', locals: { music: music} %>
-	      </div>
-			</div>
-		<% end %>
+		  <% end %>
+		</div>
+	
+		<div class="main_contents">
+			<% @musics.each do |music| %>
+				<div class= "blog_contents">
+					<div><%= music.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+					<div><%= music.user.name %></div>
+				  <h2><%= link_to music.name, music_path(music.id) %></h2>
+				  <%= music.introduction %>
+				  <div id="likes_buttons_<%= music.id %>">
+		      	<%= render partial: 'user/likes/like', locals: { music: music} %>
+		      </div>
+				</div>
+			<% end %>
+		</div>
 	</div>

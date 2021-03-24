@@ -2,19 +2,14 @@
 
 <div class= "center">
 
-  <h1>バンド一覧</h1>
-
-    <table>
-      <% kind_before_type_cast = @user %><!--ユーザー登録タイプ（band）のみを表示-->
-      <% @user.each do |user| %>
-      <tr>
-        <th>バンド名</th>
-        <th>詳細</th>
-      </tr>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to "楽曲一覧",user_path(user.id) %></td>
-      </tr>
-    <% end %>
-    </table>
+  <h1 class= "border-bottom black">バンド一覧</h1>
+    <div class="main_contents">
+		  <% kind_before_type_cast = @user %><!--ユーザー登録タイプ（band）のみを表示-->
+			  <% @user.each do |user| %>
+			  	<div class= "blog_contents">
+				  	<h2><%= user.name %></h2>
+					  <div><%= link_to "楽曲一覧",user_path(user.id) %></div>
+		      </div>
+		  	<% end %>
+		</div>
 </div>

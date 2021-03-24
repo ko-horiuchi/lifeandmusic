@@ -1,25 +1,28 @@
 <%= render 'user/user_header' %>
 
-  <h2><%= @music.user.name %></h2>
-  <h2><%= @music.name %></h2>
-
-    <%= @music.introduction %>
-
-     <% if @music.user == current_user %>
-    <td><%= link_to "Edit", edit_music_path(@music.id), class: "btn btn-success btn-sm" %></td>
-    <td><%= link_to 'Destroy', music_path,class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-    <% end %>
-
+  <div class=  "center">
+    <h2><%= @music.user.name %></h2>
+    <h21><%= @music.name %></h1>
+    
+      <% if @music.user == current_user %>
+        <td><%= link_to "Edit", edit_music_path(@music.id), class: "btn btn-success btn-sm" %></td>
+        <td><%= link_to 'Destroy', music_path,class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      <% end %>
+      
       <div><%= video_tag(@music.video.to_s, :controls => true)  %></div>
-
-
-
-   <div>
-    <h4>コメント</h4>
-    <div id="comments_area">
-      <%= render partial: 'user/comments/index', locals: { comments: @comments } %>
-    </div>
-    <% if user_signed_in? %>
-      <%= render partial: 'user/comments/form', locals: { comment: @comment, music: @music } %>
-    <% end %>
-  </div>
+      
+      <table>
+        <tr><th>introducion</th></tr>
+        <tr><td><%= @music.introduction %></td></tr>
+      </table>
+    
+      <div>
+        <h4>コメント</h4>
+          <div id="comments_area">
+            <%= render partial: 'user/comments/index', locals: { comments: @comments } %>
+          </div>
+          <% if user_signed_in? %>
+            <%= render partial: 'user/comments/form', locals: { comment: @comment, music: @music } %>
+          <% end %>
+      </div>
+</div>
