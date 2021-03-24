@@ -7,7 +7,6 @@ class User::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @musics = @user.musics
-    @music = Music.find(params[:id])
   end
 
   def edit
