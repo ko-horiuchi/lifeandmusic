@@ -7,7 +7,7 @@
       <tr><th>introducion</th></tr>
       <tr><td><%= @user.introduction %></td></tr>
     </table>
-    
+
     <% if @user == current_user %>
       <div class= "edit_btn"><%= link_to "登録内容変更",edit_user_path(@user), class: 'btn btn-success btn-sm' %></div>
       <div><%= link_to "新規楽曲投稿",new_music_path, class: 'btn btn-primary btn-lg' %></div>
@@ -15,9 +15,29 @@
 
     <h5>お気に入り楽曲</h5>
       <% @user.likes.each do |like| %>
+      <div><%= like.user.name %></div>
       　<div><%= link_to music_path(like.music) do %>
                <%= like.music.name %>
              <% end %>
         </div>
       <% end %>
+      
+        <table>
+      <% @user.musics.each do |music| %>
+      <tr>
+        <th>投稿日</th>
+        <th>楽曲名</th>
+        <th>詳細</th>
+      </tr>
+      <tr>
+        <td><%= music.created_at.strftime('%Y/%m/%d') %></td>
+        <td><%= link_to music_path(music.id) do %>
+        <%= music.name %>
+        <% end %></td>
+        <td><%= music.introduction %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>
+      
 </div>
