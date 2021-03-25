@@ -71,3 +71,5 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'mimemagic', '0.3.6'
