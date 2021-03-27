@@ -4,7 +4,6 @@
 
   <h1 class= "border-bottom black">バンド一覧</h1>
     <div class="main_contents">
-		  <% kind_before_type_cast = @user %><!--ユーザー登録タイプ（band）のみを表示-->
 			  <% @user.each do |user| %>
 			  	<div class= "blog_contents">
 				  	<h2><%= user.name %></h2>

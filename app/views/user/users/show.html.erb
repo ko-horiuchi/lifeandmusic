@@ -1,17 +1,19 @@
 <%= render 'user/user_header' %>
-  
+
   <div class= "center">
     <h1><%= @user.name %></h1>
       <table>
         <tr><th>introducion</th></tr>
         <tr><td><%= @user.introduction %></td></tr>
       </table>
-  
+
       <% if @user == current_user %>
-        <div class= "edit_btn"><%= link_to "登録内容変更",edit_user_path(@user), class: 'btn btn-success btn-sm' %></div>
-        <div><%= link_to "新規楽曲投稿",new_music_path, class: 'btn btn-primary btn-lg' %></div>
+          <div class= "edit_btn"><%= link_to "登録内容変更",edit_user_path(@user), class: 'btn btn-success btn-sm' %></div>
+        <% if @user.band? %>
+          <div><%= link_to "新規楽曲投稿",new_music_path, class: 'btn btn-primary btn-lg' %></div>
+        <% end %>
       <% end %>
-  
+
       <h5>お気に入り楽曲</h5>
         <% @user.likes.each do |like| %>
           <div><%= like.user.name %></div>
@@ -20,9 +22,9 @@
                <% end %>
           </div>
         <% end %>
-        
+
+      <% if @user.band? %>
         <table>
-          <% if kind_before_type_cast = @user %><!--ユーザー登録タイプ（band）のみ表示-->
             <h5>投稿楽曲一覧</h5>
               <% @user.musics.each do |music| %>
                 <tr>
@@ -38,6 +40,6 @@
                   <td><%= music.introduction %></td>
                 </tr>
               <% end %>
-          <% end %>
         </table>
+      <% end %>
 </div>

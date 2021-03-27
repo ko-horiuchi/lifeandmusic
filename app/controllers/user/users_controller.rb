@@ -1,12 +1,12 @@
 class User::UsersController < ApplicationController
 
   def index
-    @user = User.all
+    @user = User.band
+    # ユーザー登録タイプ（band）のみを表示
   end
 
   def show
     @user = User.find(params[:id])
-    @musics = @user.musics
   end
 
   def edit
