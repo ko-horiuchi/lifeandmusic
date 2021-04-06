@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_145854) do
   create_table "musics", force: :cascade do |t|
     t.string "name"
     t.string "video"
+    t.integer "user_id"
     t.string "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
