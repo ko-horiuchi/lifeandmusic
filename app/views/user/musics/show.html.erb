@@ -9,7 +9,7 @@
         <td><%= link_to 'Destroy', music_path,class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
       <% end %>
 
-      <div><%= video_tag(@music.video.to_s, height: "100%", width: "100%", autoplay: false, muted: true, controls: true, preload: true)  %></div>
+      <div><%= video_tag(@music.video.to_s, height: "100%", width: "100%", autoplay: false, controls: true, preload: true)  %></div>
 
       <table>
         <tr><th>introducion</th></tr>

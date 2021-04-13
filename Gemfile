@@ -68,6 +68,7 @@ gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.5'
 gem "carrierwave"
 gem 'dotenv-rails'
+gem 'fog-aws'
 group :production do
   gem 'mysql2'
 end

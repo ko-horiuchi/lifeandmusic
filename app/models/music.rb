@@ -17,10 +17,8 @@ class Music < ApplicationRecord
     when 'old'
       return all.order(created_at: :ASC)
     when 'likes'
-      # return find(Like.group(:music_id).order(Arel.sql('count(music_id) desc')).pluck(:music_id))
       return includes(:liked_users).sort{|a,b| b.liked_users.size <=> a.liked_users.size}
     when 'dislikes'
-      # return find(Like.group(:music_id).order(Arel.sql('count(music_id) asc')).pluck(:music_id))
       return includes(:liked_users).sort{|a,b| a.liked_users.size <=> b.liked_users.size}
     end
   end
