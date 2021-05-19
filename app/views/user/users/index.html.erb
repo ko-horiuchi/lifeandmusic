@@ -7,7 +7,7 @@
 			  <% @user.each do |user| %>
 			  	<div class= "blog_contents">
 				  	<h2><%= user.name %></h2>
-					  <div><%= link_to "楽曲一覧",user_path(user.id) %></div>
+					  <div class ="pt-5"><%= link_to "楽曲一覧",user_path(user.id) %></div>
 		      </div>
 		  	<% end %>
 		</div>
